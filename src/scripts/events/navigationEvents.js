@@ -15,7 +15,7 @@ const navigationEvents = () => {
 
   // TODO: ALL BOOKS
   document.querySelector('#all-books').addEventListener('click', () => {
-    getBooks().then((booksArray) => showBooks(booksArray));
+    getBooks().then((booksArray) => showBooks(booksArray)); // booksArray is a taco
   });
 
   // FIXME: STUDENTS Create an event listener for the Authors

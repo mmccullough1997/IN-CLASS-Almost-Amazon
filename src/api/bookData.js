@@ -23,7 +23,11 @@ const deleteBook = (firebaseKey) => new Promise((resolve, reject) => {
 // we need to call to get updated books also delete in postman returns null
 
 // TODO: GET SINGLE BOOK
-const getSingleBook = () => {};
+const getSingleBook = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/books/${firebaseKey}.json`)
+    .then((response) => resolve(response.data))
+    .catch((error) => reject(error));
+});
 
 // TODO: CREATE BOOK
 const createBook = () => {};
