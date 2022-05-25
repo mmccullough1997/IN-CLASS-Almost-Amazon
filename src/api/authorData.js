@@ -3,8 +3,12 @@ import firebaseConfig from './apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
-// FIXME:  GET ALL AUTHORS
-const getAuthors = () => {};
+// GET ALL AUTHORS
+const getAuthors = () => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/authors.json`) // look at postman
+    .then((response) => resolve(Object.values(response.data))) // Object.values makes into an array of values
+    .catch((error) => reject(error));
+});
 
 // FIXME: CREATE AUTHOR
 const createAuthor = () => {};
@@ -16,8 +20,21 @@ const getSingleAuthor = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-// FIXME: DELETE AUTHOR
-const deleteSingleAuthor = () => {};
+// FILTER BOOKS ON SALE
+const favoriteAuthors = () => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/authors.json?orderBy="favorite"&equalTo=true`) // look at postman
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
+
+// DELETE AUTHOR
+const deleteAuthor = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/authors/${firebaseKey}.json`)
+    .then(() => {
+      getAuthors().then((authorsArray) => resolve(authorsArray));
+    })
+    .catch((error) => reject(error));
+});
 
 // FIXME: UPDATE AUTHOR
 const updateAuthor = () => {};
@@ -29,7 +46,8 @@ export {
   getAuthors,
   createAuthor,
   getSingleAuthor,
-  deleteSingleAuthor,
+  favoriteAuthors,
+  deleteAuthor,
   updateAuthor,
   getAuthorBooks,
 };
