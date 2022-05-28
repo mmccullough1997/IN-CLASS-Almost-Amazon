@@ -4,10 +4,16 @@ import firebaseConfig from './apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
-// GET BOOKS
+// GET BOOKS - allow for no books
 const getBooks = () => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/books.json`) // look at postman
-    .then((response) => resolve(Object.values(response.data))) // Object.values makes into an array of values
+    .then((response) => {
+      if (response.data) {
+        resolve(Object.values(response.data)); // Object.values makes into an array of values
+      } else {
+        resolve([]);
+      }
+    })
     .catch((error) => reject(error));
 });
 
@@ -29,8 +35,17 @@ const getSingleBook = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-// TODO: CREATE BOOK
-const createBook = () => {};
+// CREATE BOOK
+const createBook = (bookObj) => new Promise((resolve, reject) => {
+  axios.post(`${dbUrl}/books.json`, bookObj)
+    .then((response) => {
+      const payload = { firebaseKey: response.data.name };
+      axios.patch(`${dbUrl}/books/${response.data.name}.json`, payload)
+        .then(() => {
+          getBooks().then(resolve);
+        });
+    }).catch(reject);
+});
 
 // TODO: UPDATE BOOK
 const updateBook = () => {};

@@ -1,5 +1,6 @@
 import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
+import { viewAuthorDetails } from '../../../api/mergedData';
 
 const viewAuthor = (obj) => {
   clearDom();
@@ -21,7 +22,7 @@ const viewAuthor = (obj) => {
      <div id="authorBooks"></div>
      `;
 
-  const books = Object.values(obj.bookObj);
+  const books = Object.values(obj.bookObj); // book array
   let bookString = '';
   if (books.length === 0) {
     bookString = '<h5>No books from this author.</h5>';
@@ -43,6 +44,8 @@ const viewAuthor = (obj) => {
         `;
     });
   }
+
+  console.warn(viewAuthorDetails('-N31jK9nqmgI9e1mxtuW'));
   renderToDOM('#view', domString);
   renderToDOM('#authorBooks', bookString);
 };
