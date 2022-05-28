@@ -23,22 +23,26 @@ const viewAuthor = (obj) => {
 
   const books = Object.values(obj.bookObj);
   let bookString = '';
-  books.forEach((book) => {
-    bookString += `
-    <div class="mt-5 d-flex flex-wrap">
-   <div class="d-flex flex-column">
-     <img src=${book.image} alt=${book.title} style="width: 300px;">
-   </div>
-   <div class="text-white ms-5 details">
-     <h5>${book.title} by ${obj.first_name} ${obj.last_name} ${obj.favorite ? '<span class="badge bg-danger"><i class="fa fa-heart" aria-hidden="true"></i></span>' : ''}</h5>
-     <p>${book.description || ''}</p>
-     <hr>
-     <p>${book.sale ? `<span class="badge bg-info sale-badge"><i class="fa fa-bell" aria-hidden="true"></i> Sale</span> 
-       $${book.price}` : `$${book.price}`}</p>      
-      </div>
-    </div>
-    `;
-  });
+  if (books.length === 0) {
+    bookString = '<h5>No books from this author.</h5>';
+  } else {
+    books.forEach((book) => {
+      bookString += `
+        <div class="mt-5 d-flex flex-wrap">
+       <div class="d-flex flex-column">
+         <img src=${book.image} alt=${book.title} style="width: 300px;">
+       </div>
+       <div class="text-white ms-5 details">
+         <h5>${book.title} by ${obj.first_name} ${obj.last_name} ${obj.favorite ? '<span class="badge bg-danger"><i class="fa fa-heart" aria-hidden="true"></i></span>' : ''}</h5>
+         <p>${book.description || ''}</p>
+         <hr>
+         <p>${book.sale ? `<span class="badge bg-info sale-badge"><i class="fa fa-bell" aria-hidden="true"></i> Sale</span> 
+           $${book.price}` : `$${book.price}`}</p>      
+          </div>
+        </div>
+        `;
+    });
+  }
   renderToDOM('#view', domString);
   renderToDOM('#authorBooks', bookString);
 };
