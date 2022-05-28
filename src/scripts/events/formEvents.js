@@ -1,9 +1,22 @@
+import { createBook } from '../../api/bookData';
+import { showBooks } from '../components/pages/books';
+
 const formEvents = () => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
     e.preventDefault();
+
     // TODO: CLICK EVENT FOR SUBMITTING FORM FOR ADDING A BOOK
     if (e.target.id.includes('submit-book')) {
       console.warn('CLICKED SUBMIT BOOK', e.target.id);
+      const bookObject = {
+        title: document.querySelector('#title').value,
+        image: document.querySelector('#image').value,
+        price: document.querySelector('#price').value,
+        description: document.querySelector('#description').value,
+        sale: document.querySelector('#sale').checked,
+        author_id: document.querySelector('#author_id').value
+      };
+      createBook(bookObject).then((booksArray) => showBooks(booksArray));
     }
 
     // TODO: CLICK EVENT FOR EDITING A BOOK

@@ -1,6 +1,7 @@
 // import { deleteAuthor } from '../../api/authorData';
 import { deleteBook } from '../../api/bookData';
 import { viewBookDetails, viewAuthorDetails, deleteAuthorBooks } from '../../api/mergedData';
+import addBookForm from '../components/forms/addBookForm';
 import { showAuthors } from '../components/pages/authors';
 // import { showAuthors } from '../components/pages/authors';
 import { showBooks } from '../components/pages/books';
@@ -21,6 +22,7 @@ const domEvents = () => {
     // TODO: CLICK EVENT FOR SHOWING FORM FOR ADDING A BOOK
     if (e.target.id.includes('add-book-btn')) {
       console.warn('ADD BOOK');
+      addBookForm();
     }
 
     // CLICK EVENT EDITING/UPDATING A BOOK
