@@ -17,6 +17,10 @@ const addAuthorForm = () => {
         <label for="title">Email</label>
         <input type="email" class="form-control" id="email" aria-describedby="Email" placeholder="Enter Email" required>
       </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input type="text" class="form-control" id="image" placeholder="Image">
+      </div>
       <button type="submit" class="btn btn-primary mt-3">Submit Author</button>
     </form>`;
 

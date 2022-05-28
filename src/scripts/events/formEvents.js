@@ -1,4 +1,6 @@
+import { createAuthor } from '../../api/authorData';
 import { createBook } from '../../api/bookData';
+import { showAuthors } from '../components/pages/authors';
 import { showBooks } from '../components/pages/books';
 
 const formEvents = () => {
@@ -29,6 +31,13 @@ const formEvents = () => {
     // FIXME: ADD CLICK EVENT FOR SUBMITTING FORM FOR ADDING AN AUTHOR
     if (e.target.id.includes('submit-author')) {
       console.warn('CLICKED SUBMIT AUTHOR');
+      const authorObject = {
+        email: document.querySelector('#email').value,
+        first_name: document.querySelector('#first_name').value,
+        last_name: document.querySelector('#last_name').value,
+        image: document.querySelector('#image').value
+      };
+      createAuthor(authorObject).then(showAuthors);
     }
     // FIXME:ADD CLICK EVENT FOR EDITING AN AUTHOR
   });
