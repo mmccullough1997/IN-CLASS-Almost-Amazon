@@ -40,7 +40,11 @@ const deleteAuthor = (firebaseKey) => new Promise((resolve, reject) => {
 const updateAuthor = () => {};
 
 // TODO: GET A SINGLE AUTHOR'S BOOKS
-const getAuthorBooks = () => {};
+const getSingleAuthorsBooks = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/books.json?orderBy="author_id"&equalTo="${firebaseKey}"`) // look at postman
+    .then((response) => resolve(response.data))
+    .catch((error) => reject(error));
+});
 
 export {
   getAuthors,
@@ -49,5 +53,5 @@ export {
   favoriteAuthors,
   deleteAuthor,
   updateAuthor,
-  getAuthorBooks,
+  getSingleAuthorsBooks,
 };

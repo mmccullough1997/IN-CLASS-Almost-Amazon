@@ -1,8 +1,9 @@
 import { deleteAuthor } from '../../api/authorData';
 import { deleteBook } from '../../api/bookData';
-import viewBookDetails from '../../api/mergedData';
+import { viewBookDetails, viewAuthorDetails } from '../../api/mergedData';
 import { showAuthors } from '../components/pages/authors';
 import { showBooks } from '../components/pages/books';
+import viewAuthor from '../components/pages/viewAuthor';
 import viewBook from '../components/pages/viewBook';
 
 const domEvents = () => {
@@ -32,6 +33,13 @@ const domEvents = () => {
     if (e.target.id.includes('view-book-btn')) {
       const [, bookFirebaseKey] = e.target.id.split('--');
       viewBookDetails(bookFirebaseKey).then((bookAuthorObject) => viewBook(bookAuthorObject));
+    }
+
+    // TODO: CLICK EVENT FOR VIEW AUTHOR DETAILS
+    if (e.target.id.includes('view-author-btn')) {
+      console.warn('VIEW AUTHOR BTN', e.target.id);
+      const [, authorFirebaseKey] = e.target.id.split('--');
+      viewAuthorDetails(authorFirebaseKey).then((bookAuthorObject) => viewAuthor(bookAuthorObject));
     }
 
     // ADD CLICK EVENT FOR DELETING AN AUTHOR
