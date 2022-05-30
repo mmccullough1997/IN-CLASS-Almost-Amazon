@@ -1,66 +1,83 @@
 {
-  "-MiBsfuTafbEQ7eAULxV" : {
-    "email" : "ta@ta.com",
-    "firebaseKey" : "-MiBsfuTafbEQ7eAULxV",
-    "first_name" : "Tomi",
-    "last_name" : "Adeyemi",
+  "-MiBsfuTafbEQ7eAULxV": {
+    "email": "ta@ta.com",
     "favorite": true,
+    "firebaseKey": "-MiBsfuTafbEQ7eAULxV",
+    "first_name": "Tomi",
+    "image": "https://m.media-amazon.com/images/I/A1w6gKp830L._SY600_.jpg",
+    "last_name": "Adeyemi",
     "uid": ""
   },
-  "-MiBt86VzkC-EGmJnxjm" : {
-    "email" : "ba@obama.com",
-    "firebaseKey" : "-MiBt86VzkC-EGmJnxjm",
-    "first_name" : "Barack",
-    "last_name" : "Obama",
+  "-MiBt86VzkC-EGmJnxjm": {
+    "email": "ba@obama.com",
     "favorite": true,
+    "firebaseKey": "-MiBt86VzkC-EGmJnxjm",
+    "first_name": "Barack",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/1200px-President_Barack_Obama.jpg",
+    "last_name": "Obama",
     "uid": ""
   },
-  "-MiBtwf1BwN9pGavQeR3" : {
-    "email" : "hz@zinn.com",
-    "firebaseKey" : "-MiBtwf1BwN9pGavQeR3",
-    "first_name" : "Howard",
-    "last_name" : "Zinn",
+  "-MiBtwf1BwN9pGavQeR3": {
+    "email": "hz@zinn.com",
     "favorite": false,
+    "firebaseKey": "-MiBtwf1BwN9pGavQeR3",
+    "first_name": "Howard",
+    "image": "https://www.bu.edu/files/2010/02/874803_zinn.jpg",
+    "last_name": "Zinn",
     "uid": ""
   },
-  "-MiBuOfHv9NCKB_cneij" : {
-    "email" : "at@thomas.com",
-    "firebaseKey" : "-MiBuOfHv9NCKB_cneij",
-    "first_name" : "Angie",
-    "last_name" : "Thomas",
+  "-MiBuOfHv9NCKB_cneij": {
+    "email": "at@thomas.com",
     "favorite": false,
+    "firebaseKey": "-MiBuOfHv9NCKB_cneij",
+    "first_name": "Angie",
+    "image": "https://images.ctfassets.net/xuu3iexfiw1t/4UFREzH061f4wd2KiplS3Z/a149c171f5eac8264df34c4ead66fa6b/angie-thomas-author.jpg?w=800&q=72",
+    "last_name": "Thomas",
     "uid": ""
   },
-  "-MiBulenBnY8by9Xn7q1" : {
-    "email" : "cw@whithead.com",
-    "firebaseKey" : "-MiBulenBnY8by9Xn7q1",
-    "first_name" : "Colson",
-    "last_name" : "Whitehead",
+  "-MiBulenBnY8by9Xn7q1": {
+    "email": "cw@whithead.com",
     "favorite": false,
+    "firebaseKey": "-MiBulenBnY8by9Xn7q1",
+    "first_name": "Colson",
+    "image": "https://media.vanityfair.com/photos/5d2e1cfbefb55400084dd866/master/pass/colson-whitehead-vanity-fair.jpg",
+    "last_name": "Whitehead",
     "uid": ""
   },
-  "-MiBv9_aOEJQWoobjz_U" : {
-    "email" : "mk@kendall.com",
-    "firebaseKey" : "-MiBv9_aOEJQWoobjz_U",
-    "first_name" : "Mikki",
-    "last_name" : "Kendall",
+  "-MiBv9_aOEJQWoobjz_U": {
+    "email": "mk@kendall.com",
     "favorite": true,
-    "uid": ""
+    "firebaseKey": "-MiBv9_aOEJQWoobjz_U",
+    "first_name": "Mikki",
+    "image": "https://www.chicagomag.com/wp-content/archive/images/2020/0220/C202002-312-Mikki-Kendall.jpg",
+    "last_name": "Kendall",
+    "uid": "44567146"
   },
-  "-MiBvQiWr6XNwNa1i3-0" : {
-    "email" : "lm@lm.com",
-    "firebaseKey" : "-MiBvQiWr6XNwNa1i3-0",
-    "first_name" : "L.L",
-    "last_name" : "McKinney",
+  "-N2bQ_88qHwMLDefzVkn": {
+    "email": "bo@obama.com",
     "favorite": true,
+    "firebaseKey": "-N2bQ_88qHwMLDefzVkn",
+    "first_name": "Bo",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/Bo_official_portrait_%28cropped_2%29.jpg",
+    "last_name": "Obama",
     "uid": ""
   },
-  "-MiBw4tCvNZd23yTVDQw" : {
-    "email" : "jb@baldwin.com",
-    "firebaseKey" : "-MiBw4tCvNZd23yTVDQw",
-    "first_name" : "James",
-    "last_name" : "Baldwin",
+  "-N31jK9nqmgI9e1mxtuW": {
+    "email": "lm@lm.com",
+    "favorite": true,
+    "firebaseKey": "-N31jK9nqmgI9e1mxtuW",
+    "first_name": "L.L.",
+    "image": "https://i0.wp.com/llmckinney.com/wp-content/uploads/2019/09/mckinney-bw-01.png?fit=2400%2C2918&ssl=1",
+    "last_name": "McKinney",
+    "uid": ""
+  },
+  "-N37Lo5TmpNZck-YHIXD": {
+    "email": "jb@baldwin.com",
     "favorite": false,
+    "firebaseKey": "-N37Lo5TmpNZck-YHIXD",
+    "first_name": "James",
+    "image": "https://www.biography.com/.image/t_share/MTgwNzU5OTAxMzkwMjUxMDk2/gettyimages-973461462.jpg",
+    "last_name": "Baldwin",
     "uid": ""
   }
 }
