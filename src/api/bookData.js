@@ -39,16 +39,20 @@ const getSingleBook = (firebaseKey) => new Promise((resolve, reject) => {
 const createBook = (bookObj) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/books.json`, bookObj) // take book object to create, when you send, you get back a name = firebase id
     .then((response) => {
-      const body = { firebaseKey: response.data.name };
-      axios.patch(`${dbUrl}/books/${response.data.name}.json`, body) // update book with firebaseKey
+      const payload = { firebaseKey: response.data.name };
+      axios.patch(`${dbUrl}/books/${response.data.name}.json`, payload) // update book with firebaseKey
         .then(() => {
           getBooks().then(resolve); // get all books with new data
         });
     }).catch(reject);
 });
 
-// TODO: UPDATE BOOK
-const updateBook = () => {};
+// UPDATE BOOK
+const updateBook = (bookObj) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/books/${bookObj.firebaseKey}.json`, bookObj) // update particular book with bookObj
+    .then(() => getBooks().then(resolve))
+    .catch(reject);
+});
 
 // FILTER BOOKS ON SALE
 const booksOnSale = () => new Promise((resolve, reject) => {

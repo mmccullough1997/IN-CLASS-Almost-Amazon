@@ -6,7 +6,13 @@ const dbUrl = firebaseConfig.databaseURL;
 // GET ALL AUTHORS
 const getAuthors = () => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/authors.json`) // look at postman
-    .then((response) => resolve(Object.values(response.data))) // Object.values makes into an array of values
+    .then((response) => {
+      if (response.data) {
+        resolve(Object.values(response.data)); // Object.values makes into an array of values
+      } else {
+        resolve([]);
+      }
+    })
     .catch((error) => reject(error));
 });
 
@@ -45,8 +51,12 @@ const deleteAuthor = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-// FIXME: UPDATE AUTHOR
-const updateAuthor = () => {};
+// UPDATE AUTHOR
+const updateAuthor = (authorObj) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/authors/${authorObj.firebaseKey}.json`, authorObj) // update particular author with author object
+    .then(() => getAuthors().then(resolve))
+    .catch(reject);
+});
 
 // TODO: GET A SINGLE AUTHOR'S BOOKS
 const getSingleAuthorsBooks = (firebaseKey) => new Promise((resolve, reject) => {
