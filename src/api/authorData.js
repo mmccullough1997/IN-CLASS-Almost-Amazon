@@ -7,9 +7,9 @@ const dbUrl = firebaseConfig.databaseURL;
 const getAuthors = () => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/authors.json`) // look at postman
     .then((response) => {
-      if (response.data) {
+      if (response.data) { // if there's data resolve an array
         resolve(Object.values(response.data)); // Object.values makes into an array of values
-      } else {
+      } else { // if there's not data, resolve empty array
         resolve([]);
       }
     })
@@ -58,7 +58,7 @@ const updateAuthor = (authorObj) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: GET A SINGLE AUTHOR'S BOOKS
+// GET A SINGLE AUTHOR'S BOOKS
 const getSingleAuthorsBooks = (firebaseKey) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/books.json?orderBy="author_id"&equalTo="${firebaseKey}"`) // look at postman
     .then((response) => resolve(response.data))
