@@ -1,6 +1,6 @@
 // import { deleteAuthor } from '../../api/authorData';
 import { deleteBook, getSingleBook } from '../../api/bookData';
-import { viewBookDetails, viewAuthorDetails } from '../../api/mergedData';
+import { viewBookDetails, viewAuthorDetails, deleteAuthorBooks } from '../../api/mergedData';
 import addBookForm from '../components/forms/addBookForm';
 import { showAuthors } from '../components/pages/authors';
 // import { showAuthors } from '../components/pages/authors';
@@ -8,7 +8,7 @@ import { showBooks } from '../components/pages/books';
 import viewAuthor from '../components/pages/viewAuthor';
 import viewBook from '../components/pages/viewBook';
 import addAuthorForm from '../components/forms/addAuthorForm';
-import { getSingleAuthor, deleteAuthor } from '../../api/authorData';
+import { getSingleAuthor } from '../../api/authorData';
 
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -48,24 +48,24 @@ const domEvents = (uid) => {
       viewAuthorDetails(authorFirebaseKey).then((bookAuthorObject) => viewAuthor(bookAuthorObject));
     }
 
-    // ADD CLICK EVENT FOR DELETING AN AUTHOR - OLD WAY
-    if (e.target.id.includes('delete-author-btn')) {
-      // eslint-disable-next-line no-alert
-      if (window.confirm('Want to delete?')) {
-        const [, firebaseKey] = e.target.id.split('--');
-        deleteAuthor(firebaseKey, uid).then((authorsArray) => showAuthors(authorsArray));
-      }
-    }
-
-    // // ADD CLICK EVENT FOR DELETING AN AUTHOR
+    // // ADD CLICK EVENT FOR DELETING AN AUTHOR - OLD WAY
     // if (e.target.id.includes('delete-author-btn')) {
     //   // eslint-disable-next-line no-alert
     //   if (window.confirm('Want to delete?')) {
     //     const [, firebaseKey] = e.target.id.split('--');
-    //     deleteAuthorBooks(firebaseKey).then(showAuthors); // shorthand for following line
-    //     // deleteAuthorBooks(firebaseKey).then((newAuthorsArray) => showAuthors(newAuthorsArray)); // delete author's books then show authors with new array
+    //     deleteAuthor(firebaseKey, uid).then((authorsArray) => showAuthors(authorsArray));
     //   }
     // }
+
+    // ADD CLICK EVENT FOR DELETING AN AUTHOR - DELETE BOOKS RELATED TO AUTHOR TOO
+    if (e.target.id.includes('delete-author-btn')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Want to delete?')) {
+        const [, firebaseKey] = e.target.id.split('--');
+        deleteAuthorBooks(firebaseKey, uid).then(showAuthors); // shorthand for following line
+        // deleteAuthorBooks(firebaseKey).then((newAuthorsArray) => showAuthors(newAuthorsArray)); // delete author's books then show authors with new array
+      }
+    }
 
     // ADD CLICK EVENT FOR SHOWING FORM FOR ADDING AN AUTHOR
     if (e.target.id.includes('add-author-btn')) {
