@@ -43,6 +43,7 @@ const navigationEvents = (uid) => {
       // MAKE A CALL TO THE API TO FILTER ON THE BOOKS
       // IF THE SEARCH DOESN'T RETURN ANYTHING, SHOW THE EMPTY STORE
       // OTHERWISE SHOW THE STORE
+      // searchBooksByTitle(uid, searchValue).then((searchedBook) => showBooks(searchedBook));
 
       document.querySelector('#search').value = '';
     }

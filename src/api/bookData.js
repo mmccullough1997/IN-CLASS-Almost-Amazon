@@ -68,7 +68,21 @@ const booksOnSale = (uid) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-// TODO: STRETCH...SEARCH BOOKS
+// // TODO: STRETCH...SEARCH BOOKS
+// const searchBooksByTitle = (uid, title) => new Promise((resolve, reject) => {
+//   // axios.get(`${dbUrl}/books.json?orderBy="title"&equalTo="${bookObj.title}"&orderBy="uid"&equalTo="${uid}"`)
+//   //   .then((response) => resolve(Object.values(response.data)))
+//   //   .catch(reject);
+//   // axios.get(`${dbUrl}/books.json?orderBy="uid"&equalTo="${uid}"`)
+//   //   .then(() => {
+//   //     axios.get(`${dbUrl}/books.json?orderBy="title"&equalTo="${title}"`)
+//   //       .then((searchedBook) => {
+//   //         resolve(Object.values(searchedBook));
+//   //       }).catch((error) => reject(error));
+//   //   });
+//   getBooks(uid)
+//     .then
+// });
 
 export {
   getBooks,
@@ -76,5 +90,5 @@ export {
   booksOnSale,
   deleteBook,
   getSingleBook,
-  updateBook
+  updateBook,
 };
